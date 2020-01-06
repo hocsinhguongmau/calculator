@@ -1,0 +1,27 @@
+@import '../../node_modules/bulma/bulma.sass';
+
+.Numbers button,
+.Operators button,
+.Equal button,
+    width: 100%;
+    padding: 30% 0;
+    font-size: 20px;
+    border: 1px solid #000;
+    height: auto;
+    box-sizing: border-box;
+    border-radius: 0;
+    @extend .button;
+
+.Numbers button
+    @extend .is-primary;
+
+.Operators button
+    @extend .is-success;
+
+.Equal button
+    @extend .is-danger;
+    height: 100%;
+
+.Display
+    height: 80px;
+    font-size: 30px;

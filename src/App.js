@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "./hoc/Layout/Layout";
-import "./App.scss";
+import "./App.sass";
 
 function App() {
 	return (

@@ -1,12 +1,17 @@
 import React from "react";
-import Ax from "../Ax/Ax";
 import Display from "../../components/Display/Display";
+import Buttons from "../../components/Buttons/Buttons";
 
 const Layout = () => (
-	<Ax>
-		<Display/>
-		<div>Button</div>
-	</Ax>
+	<div className="container">
+		<div className="columns is-centered is-gapless">
+			<div className="column is-half">
+				<h1 className="title">Calculator</h1>
+				<Display />
+				<Buttons />
+			</div>
+		</div>
+	</div>
 );
 
 export default Layout;

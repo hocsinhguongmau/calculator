@@ -2,7 +2,13 @@ import React from "react";
 import Input from "./Input/Input";
 
 const Display = props => (
-    <Input type="text" class="input"/>
-)
+	<div className="Display">
+		<div className="field">
+			<div className="control">
+				<Input type="text" class="input is-primary Display" />
+			</div>
+		</div>
+	</div>
+);
 
 export default Display;
