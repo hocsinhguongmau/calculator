@@ -37,7 +37,7 @@ class Layout extends Component {
 				const newValue = [...this.state.initialValue];
 				newValue.splice(newValue.length - 1, 1);
 				return {
-					initialValue: newValue + e.target.value
+					initialValue: newValue.join('') + e.target.value
 				};
 			}
 		});
