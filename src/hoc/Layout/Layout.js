@@ -6,19 +6,28 @@ import FunctionContext from "../../context/FunctionContext";
 class Layout extends Component {
 	state = {
 		initialValue: 0,
-		hasOperator: false
+		hasOperator: false,
+		calculated: false
 	};
 
 	numberHandler = e => {
 		e.persist();
 		this.setState((prevState, props) => {
-			return {
-				initialValue:
-					prevState.initialValue === 0
-						? e.target.value
-						: prevState.initialValue + e.target.value,
-				hasOperator: false
-			};
+			if (!prevState.calculated) {
+				return {
+					initialValue:
+						prevState.initialValue === 0
+							? e.target.value
+							: prevState.initialValue + e.target.value,
+					hasOperator: false
+				};
+			} else {
+				return {
+					initialValue: e.target.value,
+					hasOperator: false,
+					calculated: false
+				};
+			}
 		});
 		// console.log(this.state.initialValue);
 	};
@@ -32,7 +41,9 @@ class Layout extends Component {
 					initialValue:
 						// prevState.initialValue + e.target.getAttribute("data-text"),
 						prevState.initialValue + e.target.value,
-					hasOperator: true
+					hasOperator: true,
+					calculated: false
+
 				};
 			} else {
 				const newValue = [...this.state.initialValue];
@@ -52,7 +63,8 @@ class Layout extends Component {
 	calculateHandler = () => {
 		this.setState((prevState, props) => {
 			return {
-				initialValue: eval(prevState.initialValue)
+				initialValue: eval(prevState.initialValue),
+				calculated: true
 			};
 		});
 	};
