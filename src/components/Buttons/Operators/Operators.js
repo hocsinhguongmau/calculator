@@ -5,22 +5,22 @@ import Button from "../Button/Button";
 const Operators = props => (
 	<Ax>
 		<div className="column is-one-quarter Operators">
-			<Button val="+">
+			<Button clicked={props.clickOperator} dataText="+" val="+">
 				+
 			</Button>
 		</div>
 		<div className="column is-one-quarter  Operators">
-			<Button val="-">
-				&minus;
+			<Button clicked={props.clickOperator} dataText="-" val="-">
+				-
 			</Button>
 		</div>
 		<div className="column is-one-quarter Operators">
-			<Button val="*">
-				&times;
+			<Button clicked={props.clickOperator} dataText="x" val="*">
+				x
 			</Button>
 		</div>
 		<div className="column is-one-quarter Operators">
-			<Button val="/">
+			<Button clicked={props.clickOperator} dataText="&divide;" val="/">
 				&divide;
 			</Button>
 		</div>

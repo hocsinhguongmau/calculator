@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../Button/Button";
 
 const Equal = props => (
-	<Button val="=">
+	<Button clicked={props.calculate} val="=">
 		=
 	</Button>
 );
