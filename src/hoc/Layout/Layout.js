@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Display from "../../components/Display/Display";
 import Buttons from "../../components/Buttons/Buttons";
+import FunctionContext from "../../context/FunctionContext";
 
 class Layout extends Component {
 	state = {
@@ -37,7 +38,7 @@ class Layout extends Component {
 				const newValue = [...this.state.initialValue];
 				newValue.splice(newValue.length - 1, 1);
 				return {
-					initialValue: newValue.join('') + e.target.value
+					initialValue: newValue.join("") + e.target.value
 				};
 			}
 		});
@@ -63,12 +64,21 @@ class Layout extends Component {
 					<div className="column is-half">
 						<h1 className="title">Calculator</h1>
 						<Display currentDisplay={this.state.initialValue} />
-						<Buttons
-							numberClicked={this.numberHandler}
-							operatorClicked={this.operatorHandler}
-							clearScreen={this.clearScreenHandler}
-							calculateFunction={this.calculateHandler}
-						/>
+						<FunctionContext.Provider
+							value={{
+								numberClicked: this.numberHandler,
+								operatorClicked: this.operatorHandler,
+								clearClicked: this.clearScreenHandler,
+								equalClicked: this.calculateHandler
+							}}
+						>
+							<Buttons
+								numberClicked={this.numberHandler}
+								operatorClicked={this.operatorHandler}
+								clearClicked={this.clearScreenHandler}
+								equalClicked={this.calculateHandler}
+							/>
+						</FunctionContext.Provider>
 					</div>
 				</div>
 			</div>

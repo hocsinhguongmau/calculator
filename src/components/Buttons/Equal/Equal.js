@@ -1,10 +1,15 @@
 import React from "react";
 import Button from "../Button/Button";
+import FunctionContext from "../../../context/FunctionContext";
 
 const Equal = props => (
-	<Button clicked={props.calculate} val="=">
-		=
-	</Button>
+	<FunctionContext.Consumer>
+		{context => (
+			<Button clicked={context.equalClicked} val="=">
+				=
+			</Button>
+		)}
+	</FunctionContext.Consumer>
 );
 
 export default Equal;
