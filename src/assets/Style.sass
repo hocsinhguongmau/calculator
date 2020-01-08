@@ -1,6 +1,34 @@
-@import '../../node_modules/bulma/bulma.sass';
+body
+    font-family: $family-sans-serif;
+    margin: 0;
+    padding: 0;
 
-h1
+.App
+    padding-bottom: 50px;
+.columns
+    display: flex;
+    flex-wrap: wrap;
+    &.is-centered
+        justify-content: center;
+    &.buttons
+        border: 1px solid #000;
+    .column
+        display: block;
+        flex: none;
+        &.is-one-quarter
+            width: 25%;
+        &.is-one-third
+            width: 33.33%;
+        &.is-three-quarter
+            width: 75%;
+        &.calculator
+            width: 50%;
+            @media screen and (min-width: 768px)
+                width: 30%;
+            @media screen and (max-width: 480px)
+                width: 80%;
+
+.title
     padding-top: 20px;
 
 .Numbers,
@@ -14,20 +42,33 @@ h1
         height: auto;
         box-sizing: border-box;
         border-radius: 0;
-        @extend .button;
+        color: #fff;
+        outline: none;
+        cursor: pointer;
+        @media screen and (max-width: 480px)
+            font-size: 20px;
 
 .Numbers
     button
-        @extend .is-primary;
+        background: #8a4d76;
+        &:active,
+        &:hover
+            background: #82486F
 
 .Operators
     button
-        @extend .is-success;
+        background: #48c774;
+        &:active,
+        &:hover
+            background: #44ba6b;
 
 .Equal
     button
-        @extend .is-danger;
+        background: #f14668;
         height: 100%;
+        &:active,
+        &:hover
+            background: #ed4261;
 
 .Display
     height: 80px;

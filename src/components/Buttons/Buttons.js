@@ -7,10 +7,10 @@ import Ax from "../../hoc/Ax/Ax";
 
 const Buttons = props => (
 	<Ax>
-		<div className="columns is-gapless is-multiline">
+		<div className="columns buttons">
 			<Operators clickOperator={props.operatorClicked}/>
 			<div className="column is-three-quarter">
-				<div className="columns is-gapless is-multiline Numbers">
+				<div className="columns Numbers">
 					<Numbers/>
 					<ClearButton />
 				</div>
