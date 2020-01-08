@@ -61,11 +61,19 @@ class Layout extends Component {
 
 	calculateHandler = () => {
 		this.setState((prevState, props) => {
+			try {
+				eval(prevState.initialValue);
+			} catch (e) {
+				if (e instanceof SyntaxError) {
+					alert(e.message);
+					return;
+				}
+			}
+
 			return {
 				initialValue: Function(
 					"return (" + prevState.initialValue + ")"
 				)(),
-				// initialValue: eval(prevState.initialValue),
 				calculated: true
 			};
 		});
