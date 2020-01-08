@@ -62,7 +62,9 @@ class Layout extends Component {
 	calculateHandler = () => {
 		this.setState((prevState, props) => {
 			try {
-				eval(prevState.initialValue);
+				Function(
+					'"use strict"; return(' + prevState.initialValue + ")"
+				)();
 			} catch (e) {
 				if (e instanceof SyntaxError) {
 					alert(e.message);
@@ -72,7 +74,7 @@ class Layout extends Component {
 
 			return {
 				initialValue: Function(
-					"return (" + prevState.initialValue + ")"
+					'"use strict"; return(' + prevState.initialValue + ")"
 				)(),
 				calculated: true
 			};
