@@ -43,7 +43,6 @@ class Layout extends Component {
 						prevState.initialValue + e.target.value,
 					hasOperator: true,
 					calculated: false
-
 				};
 			} else {
 				const newValue = [...this.state.initialValue];
@@ -63,7 +62,10 @@ class Layout extends Component {
 	calculateHandler = () => {
 		this.setState((prevState, props) => {
 			return {
-				initialValue: eval(prevState.initialValue),
+				initialValue: Function(
+					"return (" + prevState.initialValue + ")"
+				)(),
+				// initialValue: eval(prevState.initialValue),
 				calculated: true
 			};
 		});
@@ -72,8 +74,8 @@ class Layout extends Component {
 	render() {
 		return (
 			<div className="container">
-				<div className="columns is-centered is-gapless">
-					<div className="column is-half">
+				<div className="columns is-centered">
+					<div className="column calculator">
 						<h1 className="title">Calculator</h1>
 						<Display currentDisplay={this.state.initialValue} />
 						<FunctionContext.Provider
